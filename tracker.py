@@ -1,3 +1,6 @@
+import argparse
+import csv
+
 def average(marks):
     if not marks:
         return 0.0
@@ -27,7 +30,7 @@ def rank(students):
     return sorted(students, key = student_average, reverse = True )
 
 
-import csv
+
 def load_students(path):
     students = []
     with open(path, newline ="")as f:
@@ -37,16 +40,15 @@ def load_students(path):
     return students
     
 if __name__ == "__main__":
-    class_list =[
-        Student("Asha", [80,90,70]),
-        Student("Sunaina", [95,89,90]),
-        Student("Arnab", [79,87,67]),
+    parser = argparse.ArgumentParser(description="Show the class ranking.")
+    parser.add_argument("csv_file", help = "path to marks CSV")
+    args = parser.parse_args()
 
-]
 
-    for position, student in enumerate(rank(class_list), start = 1):
+    students = load_students(args.csv_file)
+    for position, student in enumerate(rank(students), start = 1):
         print(position, student.name, round(student_average(student), 1))
-    print(rank(load_students("marks.csv")))
+
 
 
 
