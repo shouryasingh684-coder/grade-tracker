@@ -28,3 +28,6 @@ python -m pytest
 - class vs object: a class is the cookie cutter, and objects are the cookies shaped by it.
 - empty-marks test: the empty marks test is more important than the happy pass test because it covers the input that would crash the program , which would go unnoticed until someone else hit it   
 - tmp_path: tmp_path beats my real marks.csv because the test makes its own throwaway file with known contents, so it keeps passing even when I change the real file.
+
+
+# Week one is done.
