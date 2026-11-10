@@ -7,7 +7,7 @@ def test_average_with_no_marks():
     s = Student("Ravi", [])
     assert s.get_average() == 0
 def test_student_with_one_mark():
-    s = Student("Nikhil",[75])
+    s = Student("Nikhil",[75,0,0])
     assert s.get_average() == 25
 
 
