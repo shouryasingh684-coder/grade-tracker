@@ -27,6 +27,15 @@ def rank(students):
     return sorted(students, key = student_average, reverse = True )
 
 
+import csv
+def load_students(path):
+    students = []
+    with open(path, newline ="")as f:
+        for row in csv.DictReader(f):
+            marks = [int(m) for m in row["marks"].split()]
+            students.append(Student(row["name"], marks))
+    return students
+    
 if __name__ == "__main__":
     class_list =[
         Student("Asha", [80,90,70]),
@@ -37,6 +46,7 @@ if __name__ == "__main__":
 
     for position, student in enumerate(rank(class_list), start = 1):
         print(position, student.name, round(student_average(student), 1))
+    print(rank(load_students("marks.csv")))
 
 
 
