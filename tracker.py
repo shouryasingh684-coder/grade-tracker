@@ -10,14 +10,14 @@ class Student:
 
     def add_marks(self,mark):
         if not 0 <= mark <= 100:
-            raise ValueError("Marks should be between 1- 100")
+            raise ValueError("Marks should be between 0- 100")
         self.marks.append(mark)
 
     def get_average(self):
         return average(self.marks)
 
     def __repr__(self):
-        return f"Student({self.name!r}, Average ={self.get_average():.1f})"
+        return f"Student({self.name!r}, Average = {self.get_average():.1f})"
 
 
 def student_average(student):
